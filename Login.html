@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — ChiliGuard Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 360px;
+            text-align: center;
+            /* Menggeser konten ke atas */
+            margin-top: -100px; 
+        }
+
+        .logo {
+            width: 120px; 
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        p {
+            color: #777;
+            margin-bottom: 24px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d93025;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: block;
+            box-sizing: border-box;
+        }
+        .forgot-container {
+            text-align: right;
+            margin-bottom: 24px;
+        }
+        .forgot {
+            font-size: 13px;
+            color: #d93025;
+            text-decoration: none;
+        }
+        .btn {
+            width: 100%;
+            background: #d93025;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 0; 
+        }
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .footer a {
+            color: #d93025;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* Styling untuk Icon Mata */
+        .password-container {
+            position: relative;
+            margin-bottom: 12px; 
+        }
+        .password-container input {
+            margin-bottom: 0;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+            width: 24px; 
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toggle-password img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        /* Style untuk Pesan Sukses Visual */
+        #successMessage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50; /* Hijau */
+            color: white;
+            text-align: center;
+            font-weight: 500;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="successMessage">
+        Login Berhasil!
+    </div>
+
+    <div class="container">
+        <img src="Logo.png" alt="ChiliGuard Home" class="logo">
+        <h2>Selamat Datang</h2>
+        <p>Masuk dan Lanjutkan</p>
+
+        <form id="loginForm">
+            <input type="email" placeholder="Email" id="loginEmail" required>
+            
+            <div class="password-container">
+                <input type="password" placeholder="Kata Sandi" id="loginPassword" required>
+                
+                <span class="toggle-password" onclick="toggleVisibility()">
+                    <img id="toggle-icon" src="eye.png" alt="Show/Hide Password">
+                </span> 
+            </div>
+
+            <div class="forgot-container">
+                <a href="#" class="forgot">Lupa Kata Sandi?</a>
+            </div>
+
+            <button class="btn" type="submit">Masuk</button>
+        </form>
+
+        <div class="footer">
+            Kamu Tidak Mempunyai Akun? <a href="Daftar.html">Daftar</a>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+        // PASTIKAN ANDA GANTI INI DENGAN KONFIGURASI PROYEK FIREBASE ANDA
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQ2OwmYy7S-l42Tb2SP0hA05PriGLCZGI",
+            authDomain: "chiliguard-home.firebaseapp.com",
+            projectId: "chiliguard-home",
+            storageBucket: "chiliguard-home.firebasestorage.app",
+            messagingSenderId: "228278932903",
+            appId: "1:228278932903:web:ce8e93ec307b6441dd9282"
+        };
+
+        // Inisialisasi Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        
+        // --- LOGIKA FIREBASE LOGIN ---
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            // 1. VALIDASI JANGAN KOSONG
+            if (!email || !password) {
+                alert("Masukkan Email/Nomor Telepon dan Kata Sandi Anda.");
+                return;
+            }
+
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // 1. Tampilkan pesan sukses visual
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    // 2. Tunda redirect selama 3 detik
+                    setTimeout(() => {
+                        window.location.href = "SelamatDatang.html"; 
+                    }, 2000); 
+                })
+                .catch((error) => {
+                    // DEBUGGING: Mencetak error ke console
+                    console.error("Firebase Login Error:", error); 
+                    
+                    // 2. PESAN ERROR SPESIFIK DARI FIREBASE
+                    let errorMessage = "Terjadi kesalahan saat masuk. Silakan coba lagi.";
+                    
+                    switch (error.code) {
+                        case 'auth/user-not-found':
+                        case 'auth/invalid-email':
+                            errorMessage = "Akun tidak ditemukan. Pastikan email Anda benar atau silakan Daftar.";
+                            break;
+                        case 'auth/wrong-password':
+                            errorMessage = "Kata sandi salah. Silakan coba lagi atau gunakan fitur Lupa Kata Sandi.";
+                            break;
+                        case 'auth/too-many-requests':
+                            errorMessage = "Terlalu banyak percobaan login yang gagal. Coba lagi nanti.";
+                            break;
+                        default:
+                            // Pesan error umum dan rapi
+                            errorMessage = "Login Gagal. Mohon periksa kembali email dan kata sandi Anda.";
+                            break;
+                    }
+                    
+                    alert(errorMessage);
+                });
+        });
+
+        // --- FUNGSI TOGGLE PASSWORD ---
+        function toggleVisibility() {
+            const passwordField = document.getElementById('loginPassword');
+            const toggleIconImg = document.getElementById('toggle-icon');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIconImg.src = 'hide.png'; 
+                toggleIconImg.alt = 'Hide Password';
+            } else {
+                passwordField.type = 'password';
+                toggleIconImg.src = 'eye.png'; 
+                toggleIconImg.alt = 'Show Password';
+            }
+        }
+    </script>
+</body>
+</html>

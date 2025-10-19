@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ChiliGuard Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+    .background {
+      position: absolute;
+      inset: 0;
+      background: url('Bg.png') center center / cover no-repeat;
+      opacity: 0.2;
+      z-index: 1;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .logo {
+      width: 150;
+      height: 250px;
+      object-fit: contain;
+      border-radius: 16px;
+      user-select: none;
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+  <script>
+    // Setelah 3 detik, pindah ke halaman login
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 3000);
+  </script>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <img src="Logo.png" alt="ChiliGuard Home Logo" class="logo">
+  </div>
+</body>
+</html>
