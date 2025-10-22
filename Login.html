@@ -144,7 +144,7 @@
             </div>
 
             <div class="forgot-container">
-                <a href="#" class="forgot">Lupa Kata Sandi?</a>
+                <a href="#" class="forgot" id="forgotPassword">Lupa Kata Sandi?</a>
             </div>
 
             <button class="btn" type="submit">Masuk</button>
@@ -222,6 +222,35 @@
                     alert(errorMessage);
                 });
         });
+        
+        // --- FUNGSI LUPA PASSWORD ---
+document.getElementById('forgotPassword').addEventListener('click', (e) => {
+    e.preventDefault(); // mencegah reload halaman
+
+    const email = prompt("Masukkan email Anda untuk reset password:");
+
+    if (!email) {
+        alert("Email wajib diisi.");
+        return;
+    }
+
+    auth.sendPasswordResetEmail(email)
+        .then(() => {
+            alert("Email reset password telah dikirim. Periksa inbox Anda!");
+        })
+        .catch((error) => {
+            console.error("Error reset password:", error);
+            switch (error.code) {
+                case 'auth/user-not-found':
+                case 'auth/invalid-email':
+                    alert("Email tidak valid atau akun tidak ditemukan.");
+                    break;
+                default:
+                    alert("Gagal mengirim email reset password. Silakan coba lagi.");
+            }
+        });
+});
+
 
         // --- FUNGSI TOGGLE PASSWORD ---
         function toggleVisibility() {
