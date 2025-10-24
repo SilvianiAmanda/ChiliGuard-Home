@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiring Diagram</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <button class="back-btn" onclick="window.location.href='beranda6.html'">←</button>
+    <h1>Setup Sensor</h1>
+  </header>
+
+  <div class="container">
+    <h2>Wiring Diagram</h2>
+    <p>Hubungkan komponen sesuai diagram berikut:</p>
+
+    <div class="card">🌡️ DHT22 VCC → ESP32 3V3</div>
+    <div class="card">⚡ DHT22 Data → GPIO 4</div>
+    <div class="card">💧 Soil Sensor → GPIO 34</div>
+
+    <p><em>Tips:</em> Pastikan wiring sudah terpasang dengan benar.</p>
+
+    <button onclick="window.location.href='beranda8.html'">Selanjutnya</button>
+  </div>
+
+  <footer class="navbar">
+    <a href="#" class="active">Beranda</a>
+    <a href="#">Cloud</a>
+    <a href="#">Notifikasi</a>
+    <a href="#">Sistem</a>
+    <a href="#">Pengaturan</a>
+  </footer>
+</body>
+</html>
