@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Penanaman Cabai</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 430px;
+        margin: auto;
+        padding: 15px;
+    }
+
+    /* Header */
+    .back {
+        font-size: 24px;
+        color: #d32f2f;
+        text-decoration: none;
+    }
+
+    .title {
+        text-align: center;
+        color: #d32f2f;
+        font-weight: 800;
+        font-size: 22px;
+        margin-top: 5px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        color: #d32f2f;
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    /* Step Card */
+    .step-card {
+        border: 2px solid #f28b82;
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s ease;
+        background: #fff;
+    }
+
+    .step-card.completed {
+        border-color: #4CAF50;
+        background: #f0fff0;
+    }
+
+    .step-info {
+        flex: 1;
+    }
+
+    .step-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 5px;
+    }
+
+    .step-badge {
+        background: #d32f2f;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 12px;
+        padding: 2px 8px;
+        font-weight: 600;
+    }
+
+    .step-card.completed .step-badge {
+        background: #4CAF50;
+    }
+
+    .step-title {
+        font-weight: 600;
+        font-size: 15px;
+        color: #222;
+    }
+
+    .step-card.completed .step-title {
+        color: #4CAF50;
+    }
+
+    .step-desc {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 6px;
+    }
+
+    .btn {
+        border: 1.5px solid #222;
+        border-radius: 8px;
+        font-size: 12px;
+        padding: 3px 10px;
+        cursor: pointer;
+        font-weight: 500;
+        background: transparent;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-icon {
+        font-weight: bold;
+        margin-right: 3px;
+    }
+
+    .btn-green {
+        border-color: #4CAF50;
+        color: #4CAF50;
+    }
+
+    .step-card.completed .btn-green {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+    .step-image {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-left: 8px;
+    }
+
+    /* Upload section */
+    .upload-section {
+        border: 2px dashed #d32f2f;
+        border-radius: 10px;
+        text-align: center;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .upload-btn {
+        display: inline-block;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 15px;
+        text-decoration: none;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    /* Footer note */
+    .note {
+        font-size: 12px;
+        color: #555;
+        background: #fff5f5;
+        border-radius: 8px;
+        padding: 10px;
+        margin-top: 10px;
+        border-left: 3px solid #d32f2f;
+    }
+
+    /* Final button */
+    .finish-btn {
+        background: #d32f2f;
+        color: #fff;
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    .finish-btn:hover {
+        background: #b71c1c;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <a href="#" class="back">&#8592;</a>
+    <h1 class="title">PANDUAN<br>PENANAMAN CABAI</h1>
+    <h3 class="subtitle">Persiapan Sebelum Semai</h3>
+
+    <!-- Step 1 -->
+    <div class="step-card">
+        <div class="step-info">
+            <div class="step-header">
+                <div class="step-badge">Step 1</div>
+                <div class="step-title">Persiapan Larutan Previcur</div>
+            </div>
+            <div class="step-desc">Campurkan ½ ml Previcur N 722 SL ke dalam ½ liter air.</div>
+            <div class="buttons">
+                <button class="btn">💡 Fungsi & Tips</button>
+                <button class="btn">▶️ Animasi</button>
+                <button class="btn btn-green" onclick="markDone(this)">✔ Selesai</button>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png" class="step-image">
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+        <div class="step-info">
+            <div class="step-header">
+                <div class="step-badge">Step 2</div>
+                <div class="step-title">Perendaman Benih</div>
+            </div>
+            <div class="step-desc">Masukkan benih cabai ke dalam wadah plastik.</div>
+            <div class="buttons">
+                <button class="btn">💡 Fungsi & Tips</button>
+                <button class="btn">▶️ Animasi</button>
+                <button class="btn btn-green" onclick="markDone(this)">✔ Selesai</button>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/826/826939.png" class="step-image">
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+        <div class="step-info">
+            <div class="step-header">
+                <div class="step-badge">Step 3</div>
+                <div class="step-title">Aplikasi Larutan Previcur</div>
+            </div>
+            <div class="step-desc">Masukkan larutan Previcur ke dalam wadah plastik.</div>
+            <div class="buttons">
+                <button class="btn">💡 Fungsi & Tips</button>
+                <button class="btn">▶️ Animasi</button>
+                <button class="btn btn-green" onclick="markDone(this)">✔ Selesai</button>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3049/3049319.png" class="step-image">
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+        <div class="step-info">
+            <div class="step-header">
+                <div class="step-badge">Step 4</div>
+                <div class="step-title">Masa Perendaman</div>
+            </div>
+            <div class="step-desc">Rendam benih selama 30 menit.</div>
+            <div class="buttons">
+                <button class="btn">💡 Fungsi & Tips</button>
+                <button class="btn">▶️ Animasi</button>
+                <button class="btn btn-green" onclick="markDone(this)">✔ Selesai</button>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/728/728093.png" class="step-image">
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+        <div class="step-info">
+            <div class="step-header">
+                <div class="step-badge">Step 5</div>
+                <div class="step-title">Penirisan Benih</div>
+            </div>
+            <div class="step-desc">Buang benih yang mengambang dan tiriskan yang tenggelam.</div>
+            <div class="buttons">
+                <button class="btn">💡 Fungsi & Tips</button>
+                <button class="btn">▶️ Animasi</button>
+                <button class="btn btn-green" onclick="markDone(this)">✔ Selesai</button>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/1253/1253607.png" class="step-image">
+    </div>
+
+    <!-- Upload hasil akhir -->
+    <div class="upload-section">
+        <p>Setelah menyelesaikan semua tahapan di atas, upload foto benih yang sudah direndam.</p>
+        <a href="#" class="upload-btn">📷 Upload Foto Hasil Kerja</a>
+    </div>
+
+    <!-- Catatan -->
+    <div class="note">
+        <b>Catatan:</b> Pastikan Anda mengikuti setiap tahapan dengan benar untuk hasil optimal.
+        Benih yang sudah dipersiapkan dengan baik akan menghasilkan tanaman cabai yang sehat dan produktif.
+    </div>
+
+    <!-- Tombol selesai -->
+    <button class="finish-btn" onclick="markAllDone()">Selesai</button>
+</div>
+
+<script>
+function markDone(btn) {
+    const step = btn.closest('.step-card');
+    step.classList.toggle('completed');
+}
+
+function markAllDone() {
+    document.querySelectorAll('.step-card').forEach(card => {
+        card.classList.add('completed');
+    });
+}
+</script>
+
+</body>
+</html>

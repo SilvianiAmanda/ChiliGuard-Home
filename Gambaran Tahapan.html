@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Penanaman Cabai</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #222;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    /* Tombol back */
+    .back-arrow {
+        position: absolute;
+        left: 15px;
+        top: 20px;
+        font-size: 24px;
+        color: #d32f2f;
+        text-decoration: none;
+    }
+
+    /* Judul */
+    .title {
+        font-weight: 800;
+        color: #d32f2f;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        font-size: 20px;
+        line-height: 1.2;
+        margin-top: 40px;
+    }
+
+    /* Kartu utama */
+    .card {
+        border: 1.5px solid #f5baba;
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-top: 20px;
+        text-align: left;
+        background-color: #fdeaea;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+        color: #d32f2f;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    /* Setiap langkah */
+    .step {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        padding: 10px 14px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .step:hover {
+        transform: scale(1.02);
+    }
+
+    /* Lingkaran angka default */
+    .step-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #d32f2f;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 10px;
+        flex-shrink: 0;
+        transition: 0.3s;
+        font-size: 14px;
+        position: relative;
+    }
+
+    /* Jika sudah dicentang — angka hilang, muncul centang hijau */
+    .step.completed .step-number {
+        background-color: #fff;
+        border: 2px solid #4CAF50;
+        color: transparent; /* Hilangkan angka */
+    }
+
+    .step.completed .step-number::before {
+        content: "✓";
+        position: absolute;
+        color: #4CAF50;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        font-weight: 700;
+    }
+
+    .step.completed span {
+        color: #4CAF50;
+        font-weight: 600;
+    }
+
+    .step span {
+        font-size: 15px;
+    }
+
+    /* Responsif */
+    @media (max-width: 480px) {
+        .container {
+            padding: 15px;
+        }
+        .title {
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <a href="#" class="back-arrow">&#8592;</a>
+
+    <h1 class="title">PANDUAN<br>PENANAMAN CABAI</h1>
+
+    <div class="card">
+        <h3>Tahapan Penanaman</h3>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">1</div>
+            <span>Persiapan Sebelum Semai</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">2</div>
+            <span>Pembuatan Media Semai</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">3</div>
+            <span>Penyemaian Benih</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">4</div>
+            <span>Perkecambahan Benih</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">5</div>
+            <span>Pindah Ke Pot Besar</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">6</div>
+            <span>Masa Pertumbuhan</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">7</div>
+            <span>Panen Pertama</span>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-number">8</div>
+            <span>Perawatan Pasca Panen</span>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleStep(stepElement) {
+    stepElement.classList.toggle("completed");
+}
+</script>
+
+</body>
+</html>
