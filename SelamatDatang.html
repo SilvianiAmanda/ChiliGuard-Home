@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Datang</title>
+
+  <!-- Import font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======== RESET & BASE ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 380px;
+      text-align: center;
+      margin-top: -50px; 
+    }
+
+    /* ======== LOGO ======== */
+    .logo {
+      width: 130px; /* diperbesar */
+      height: auto;
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    /* ======== TITLE ======== */
+    .title {
+      font-size: 32px; /* lebih besar */
+      font-weight: 900; /* tebal maksimal */
+      color: #d32f2f;
+      line-height: 1.3;
+      margin-bottom: 40px;
+
+      /* efek stroke putih */
+      -webkit-text-stroke: 1px #ffffff;
+      text-stroke: 1px #ffffff;
+
+      /* bayangan teks agar timbul */
+      text-shadow:
+        0px 5px 8px rgba(0, 0, 0, 0.3),
+        -0.5px -0.5px 0 #ffffff,
+        0.5px 0.5px 0 #ffffff;
+    }
+
+    /* ======== DESCRIPTION ======== */
+    .desc {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 50px;
+      padding: 0 10px;
+      font-weight: 500;
+    }
+
+    /* ======== FITUR BOX ======== */
+    .fitur-box {
+      border: 2px solid #d32f2f;
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+      background-color: #fff;
+    }
+
+    /* Judul fitur utama di tengah */
+    .fitur-box h3 {
+      color: #d32f2f;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center; /* posisi di tengah */
+    }
+
+    /* List tetap rata kiri */
+    .fitur-box ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    /* ======== BUTTON ======== */
+    .button {
+      display: inline-block;
+      background-color: #d32f2f;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 999px; /* super oval */
+      box-shadow: 0 5px 12px rgba(211, 47, 47, 0.35);
+      transition: all 0.25s ease-in-out;
+      width: 100%;
+      max-width: 370px; /* tombol lebih panjang */
+      letter-spacing: 0.3px;
+    }
+
+    .button:hover {
+      background-color: #b71c1c;
+      box-shadow: 0 7px 14px rgba(183, 28, 28, 0.4);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <img src="Logo.png" alt="ChiliGuard Home Logo" class="logo" />
+
+    <!-- Judul -->
+    <h1 class="title">
+      Selamat Datang di <br />
+      ChiliGuard Home!
+    </h1>
+
+    <!-- Deskripsi -->
+    <p class="desc">
+      Website pintar yang memberikan edukasi cara menanam cabai sendiri di rumah dengan mudah,
+      bahkan jika Anda pemula sekalipun!
+    </p>
+
+    <!-- Fitur Utama -->
+    <div class="fitur-box">
+      <h3>Fitur Utama :</h3>
+      <ul>
+        <li>Panduan tahapan menanam cabai langkah demi langkah</li>
+        <li>Monitoring otomatis kelembapan & suhu</li>
+        <li>Deteksi hama & penyakit dengan AI</li>
+        <li>Penyiraman otomatis lewat smartphone</li>
+        <li>Edukasi lengkap cara merawat cabai</li>
+      </ul>
+    </div>
+
+    <!-- Tombol -->
+    <a href="#" class="button">Mulai menanam</a>
+  </div>
+</body>
+</html>
