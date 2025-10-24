@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiliGuard Home</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    .phone-frame {
+      width: 390px;
+      background-color: #fff;
+      border: 2px solid #ddd;
+      min-height: 100vh;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      padding-bottom: 100px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header h1 {
+      color: #e53e3e;
+      font-weight: 700;
+      font-size: 22px;
+      text-shadow: 1px 1px 2px #f6a6a6;
+      margin: 0;
+    }
+
+    .header h2 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .plant-card {
+      border: 2px solid #c53030;
+      border-radius: 12px;
+      margin: 0 20px 20px 20px;
+      padding: 15px;
+      background-color: #fff;
+    }
+
+    .plant-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .plant-header span {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .monitoring {
+      background-color: #fde8e8;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .monitoring h3 {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 8px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: #e53e3e;
+    }
+
+    .sensor-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .sensor-box {
+      width: 48%;
+      background-color: #fff;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .sensor-box h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #e53e3e;
+    }
+
+    .sensor-box p {
+      margin: 0;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #e53e3e;
+      color: #fff;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .progress-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .current-stage {
+      text-align: center;
+      border: 1.5px solid #c53030;
+      border-radius: 10px;
+      padding: 6px;
+      margin-top: 5px;
+      font-size: 13px;
+      color: #c53030;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 390px;
+      background-color: #fff;
+      border-top: 2px solid #c53030;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 13px;
+      color: #c53030;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="header">
+      <h1>Selamat Datang di<br>ChiliGuard Home!</h1>
+      <h2>Tanaman saya</h2>
+    </div>
+
+    <div class="plant-card">
+      <div class="plant-header">
+        <div>🌶️ Cabai Merah 1</div>
+        <span>21 hari</span>
+      </div>
+
+      <div class="monitoring">
+        <h3>Monitoring Real-Time</h3>
+        <p>💧 Kelembapan Tanah</p>
+        <div class="progress">
+          <div class="progress-bar" style="width:25%;"></div>
+        </div>
+        <p style="font-size:12px; color:#c53030;">25% Kering</p>
+
+        <div class="sensor-grid">
+          <div class="sensor-box">
+            <h4>28°C</h4>
+            <p>🌡️ Suhu<br><b>Optimal</b></p>
+          </div>
+          <div class="sensor-box">
+            <h4>65%</h4>
+            <p>💨 Kelembapan Udara<br><b>Optimal</b></p>
+          </div>
+        </div>
+
+        <button class="btn">Siram Sekarang</button>
+      </div>
+
+      <div class="progress-info">Progress Tahapan : 30%</div>
+      <div class="current-stage">Tahap Saat ini : <b>Masa Pertumbuhan</b></div>
+
+      <button class="btn" style="margin-top:10px;">Lihat Detail Tahapan</button>
+    </div>
+
+    <!-- Navigasi Bawah -->
+    <div class="bottom-nav">
+      <div class="nav-item">🏠<br>Beranda</div>
+      <div class="nav-item">📘<br>Edukasi</div>
+      <div class="nav-item">🔔<br>Notifikasi</div>
+      <div class="nav-item">⚙️<br>Sistem</div>
+    </div>
+  </div>
+</body>
+</html>

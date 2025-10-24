@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart System</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    background-color: white;
+    padding: 15px 0 5px 0;
+    border-bottom: 2px solid #eee;
+  }
+
+  .header h1 {
+    color: #c40000;
+    margin: 5px 0;
+    font-size: 24px;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .tab {
+    background-color: #c40000;
+    color: white;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    padding: 8px 18px;
+    margin: 0 2px;
+    cursor: pointer;
+  }
+
+  .tab.inactive {
+    background-color: #ddd;
+    color: #333;
+  }
+
+  /* Main content */
+  .container {
+    padding: 15px;
+  }
+
+  .card {
+    background-color: white;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    color: #c40000;
+    font-size: 18px;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+  }
+
+  .status-box {
+    border: 1px solid #00b050;
+    background-color: #eaffea;
+    border-radius: 10px;
+    padding: 8px 12px;
+    display: inline-block;
+  }
+
+  .status-box span {
+    font-weight: 600;
+    color: #007a33;
+  }
+
+  .water {
+    font-size: 15px;
+  }
+
+  .bar {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    height: 10px;
+    margin-top: 5px;
+  }
+
+  .bar-fill {
+    background-color: #007aff;
+    height: 10px;
+    width: 75%;
+    border-radius: 10px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 2px solid #eee;
+    padding: 8px 0;
+  }
+
+  .footer div {
+    text-align: center;
+    font-size: 13px;
+    color: #c40000;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Sistem</h1>
+    <div class="tabs">
+      <button class="tab">Smart System</button>
+      <button class="tab inactive">Panduan Perakitan</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h3>Status Perangkat</h3>
+      <div class="status">
+        <div class="status-box">
+          <span>ESP32 ChiliGuard Home</span><br>
+          Terhubung
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Tangki Penampungan Air</h3>
+      <div class="water">
+        Kapasitas Total: <b>5 Liter</b><br>
+        Level Air Saat Ini: <b>75%</b>
+        <div class="bar"><div class="bar-fill"></div></div>
+        <p>≈ 3.8 Liter tersedia</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>🏠<br>Beranda</div>
+    <div>📘<br>Edukasi</div>
+    <div>🔔<br>Notifikasi</div>
+    <div>⚙️<br>Sistem</div>
+  </div>
+
+</body>
+</html>
