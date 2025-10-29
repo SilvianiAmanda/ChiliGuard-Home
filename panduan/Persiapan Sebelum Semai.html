@@ -20,11 +20,11 @@
         padding: 15px;
     }
 
-    /* Header */
     .back {
         font-size: 24px;
         color: #d32f2f;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .title {
@@ -44,7 +44,6 @@
         text-align: left;
     }
 
-    /* Step Card */
     .step-card {
         border: 2px solid #f28b82;
         border-radius: 12px;
@@ -122,11 +121,6 @@
         transform: scale(1.05);
     }
 
-    .btn-icon {
-        font-weight: bold;
-        margin-right: 3px;
-    }
-
     .btn-green {
         border-color: #4CAF50;
         color: #4CAF50;
@@ -144,7 +138,6 @@
         margin-left: 8px;
     }
 
-    /* Upload section */
     .upload-section {
         border: 2px dashed #d32f2f;
         border-radius: 10px;
@@ -165,7 +158,6 @@
         font-size: 14px;
     }
 
-    /* Footer note */
     .note {
         font-size: 12px;
         color: #555;
@@ -176,7 +168,6 @@
         border-left: 3px solid #d32f2f;
     }
 
-    /* Final button */
     .finish-btn {
         background: #d32f2f;
         color: #fff;
@@ -193,17 +184,17 @@
     .finish-btn:hover {
         background: #b71c1c;
     }
-
 </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="#" class="back">&#8592;</a>
+    <a class="back" onclick="goBack()">&#8592;</a>
+
     <h1 class="title">PANDUAN<br>PENANAMAN CABAI</h1>
     <h3 class="subtitle">Persiapan Sebelum Semai</h3>
 
-    <!-- Step 1 -->
+    <!-- Step Cards -->
     <div class="step-card">
         <div class="step-info">
             <div class="step-header">
@@ -220,7 +211,6 @@
         <img src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png" class="step-image">
     </div>
 
-    <!-- Step 2 -->
     <div class="step-card">
         <div class="step-info">
             <div class="step-header">
@@ -237,7 +227,6 @@
         <img src="https://cdn-icons-png.flaticon.com/512/826/826939.png" class="step-image">
     </div>
 
-    <!-- Step 3 -->
     <div class="step-card">
         <div class="step-info">
             <div class="step-header">
@@ -254,7 +243,6 @@
         <img src="https://cdn-icons-png.flaticon.com/512/3049/3049319.png" class="step-image">
     </div>
 
-    <!-- Step 4 -->
     <div class="step-card">
         <div class="step-info">
             <div class="step-header">
@@ -271,7 +259,6 @@
         <img src="https://cdn-icons-png.flaticon.com/512/728/728093.png" class="step-image">
     </div>
 
-    <!-- Step 5 -->
     <div class="step-card">
         <div class="step-info">
             <div class="step-header">
@@ -288,19 +275,16 @@
         <img src="https://cdn-icons-png.flaticon.com/512/1253/1253607.png" class="step-image">
     </div>
 
-    <!-- Upload hasil akhir -->
     <div class="upload-section">
         <p>Setelah menyelesaikan semua tahapan di atas, upload foto benih yang sudah direndam.</p>
         <a href="#" class="upload-btn">📷 Upload Foto Hasil Kerja</a>
     </div>
 
-    <!-- Catatan -->
     <div class="note">
         <b>Catatan:</b> Pastikan Anda mengikuti setiap tahapan dengan benar untuk hasil optimal.
         Benih yang sudah dipersiapkan dengan baik akan menghasilkan tanaman cabai yang sehat dan produktif.
     </div>
 
-    <!-- Tombol selesai -->
     <button class="finish-btn" onclick="markAllDone()">Selesai</button>
 </div>
 
@@ -310,10 +294,21 @@ function markDone(btn) {
     step.classList.toggle('completed');
 }
 
+// Fungsi tombol selesai
 function markAllDone() {
     document.querySelectorAll('.step-card').forEach(card => {
         card.classList.add('completed');
     });
+
+    // Simpan status selesai di localStorage agar halaman Gambaran Tahapan tahu
+    localStorage.setItem('step1', 'done');
+
+    // Pindah ke halaman Gambaran Tahapan
+    window.location.href = 'panduan/Gambaran Tahapan.html';
+}
+
+function goBack() {
+    window.history.back();
 }
 </script>
 

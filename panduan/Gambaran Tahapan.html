@@ -70,6 +70,8 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         cursor: pointer;
         transition: 0.25s ease;
+        text-decoration: none;
+        color: inherit;
     }
 
     .step:hover {
@@ -98,7 +100,7 @@
     .step.completed .step-number {
         background-color: #fff;
         border: 2px solid #4CAF50;
-        color: transparent; /* Hilangkan angka */
+        color: transparent;
     }
 
     .step.completed .step-number::before {
@@ -142,42 +144,42 @@
     <div class="card">
         <h3>Tahapan Penanaman</h3>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(1, 'Persiapan Sebelum Semai.html')">
             <div class="step-number">1</div>
             <span>Persiapan Sebelum Semai</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(2, 'Pembuatan Media Semai.html')">
             <div class="step-number">2</div>
             <span>Pembuatan Media Semai</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(3, 'Penyemaian Benih.html')">
             <div class="step-number">3</div>
             <span>Penyemaian Benih</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(4, 'Perkecambahan Benih.html')">
             <div class="step-number">4</div>
             <span>Perkecambahan Benih</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(5, 'Pindah Ke Pot Besar.html')">
             <div class="step-number">5</div>
             <span>Pindah Ke Pot Besar</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(6, 'Masa-Pertumbuhan.html')">
             <div class="step-number">6</div>
             <span>Masa Pertumbuhan</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(7, 'Panen-Pertama.html')">
             <div class="step-number">7</div>
             <span>Panen Pertama</span>
         </div>
 
-        <div class="step" onclick="toggleStep(this)">
+        <div class="step" onclick="goToStep(8, 'Perawatan-Pasca-Panen.html')">
             <div class="step-number">8</div>
             <span>Perawatan Pasca Panen</span>
         </div>
@@ -185,9 +187,23 @@
 </div>
 
 <script>
-function toggleStep(stepElement) {
-    stepElement.classList.toggle("completed");
+function goToStep(stepNumber, url) {
+    // Simpan langkah yang sedang dibuka
+    localStorage.setItem("currentStep", stepNumber);
+    // Pindah ke halaman detail
+    window.location.href = url;
 }
+
+// Saat halaman dimuat, tandai langkah yang sudah selesai
+window.onload = function() {
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((step, index) => {
+        const stepKey = 'step' + (index + 1);
+        if (localStorage.getItem(stepKey) === 'done') {
+            step.classList.add('completed');
+        }
+    });
+};
 </script>
 
 </body>

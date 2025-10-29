@@ -1,0 +1,103 @@
+/* --- RESET DAN DASAR --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+/* --- HEADER --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header h1 {
+  font-size: 18px;
+  color: #b80000;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #b80000;
+}
+
+/* --- KONTEN --- */
+.container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+h2 {
+  color: #b80000;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* --- LIST ITEM --- */
+.card {
+  background-color: #fff2f2;
+  border: 1px solid #ffd6d6;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* --- TOMBOL --- */
+button, .btn {
+  background-color: #b80000;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #990000;
+}
+
+/* --- FOOTER NAVBAR --- */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar a.active {
+  color: #b80000;
+  font-weight: bold;
+}

@@ -128,7 +128,7 @@
     </div>
 
     <div class="container">
-        <img src="Logo.png" alt="ChiliGuard Home" class="logo">
+        <img src="assets\images\logo.png" alt="ChiliGuard Home" class="logo">
         <h2>Selamat Datang</h2>
         <p>Masuk dan Lanjutkan</p>
 
@@ -139,7 +139,7 @@
                 <input type="password" placeholder="Kata Sandi" id="loginPassword" required>
                 
                 <span class="toggle-password" onclick="toggleVisibility()">
-                    <img id="toggle-icon" src="eye.png" alt="Show/Hide Password">
+                    <img id="toggle-icon" src="assets\images\eye.png" alt="Show/Hide Password">
                 </span> 
             </div>
 
@@ -151,7 +151,7 @@
         </form>
 
         <div class="footer">
-            Kamu Tidak Mempunyai Akun? <a href="Daftar.html">Daftar</a>
+            Kamu Tidak Mempunyai Akun? <a href="daftar.html">Daftar</a>
         </div>
     </div>
     
@@ -192,7 +192,7 @@
 
                     // 2. Tunda redirect selama 3 detik
                     setTimeout(() => {
-                        window.location.href = "SelamatDatang.html"; 
+                        window.location.href = "selamat-datang.html"; 
                     }, 2000); 
                 })
                 .catch((error) => {
@@ -259,11 +259,11 @@ document.getElementById('forgotPassword').addEventListener('click', (e) => {
 
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
-                toggleIconImg.src = 'hide.png'; 
+                toggleIconImg.src = 'assets\images\hide.png'; 
                 toggleIconImg.alt = 'Hide Password';
             } else {
                 passwordField.type = 'password';
-                toggleIconImg.src = 'eye.png'; 
+                toggleIconImg.src = 'assets\images\eye.png'; 
                 toggleIconImg.alt = 'Show Password';
             }
         }
