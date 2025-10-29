@@ -139,7 +139,6 @@
         color: white;
     }
 
-    /* Upload */
     .upload-card {
         border: 2px dashed #f5baba;
         border-radius: 12px;
@@ -189,13 +188,11 @@
         width: 80%;
         font-size: 15px;
     }
-
 </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- panah kembali -->
     <a class="back" onclick="goBack()">&#8592;</a>
 
     <h1>PANDUAN<br>PENANAMAN CABAI</h1>
@@ -209,7 +206,7 @@
             <div class="button-row">
                 <button class="btn fungsi">🔎 Fungsi & Tips</button>
                 <button class="btn animasi">▶ Animasi</button>
-                <button class="btn selesai" onclick="markStep('step1')">✔ Selesai</button>
+                <button class="btn selesai" onclick="markDone('step1')">✔ Selesai</button>
             </div>
         </div>
         <div class="step-icon"><img src="https://cdn-icons-png.flaticon.com/128/2909/2909832.png" alt=""></div>
@@ -223,7 +220,7 @@
             <div class="button-row">
                 <button class="btn fungsi">🔎 Fungsi & Tips</button>
                 <button class="btn animasi">▶ Animasi</button>
-                <button class="btn selesai" onclick="markStep('step2')">✔ Selesai</button>
+                <button class="btn selesai" onclick="markDone('step2')">✔ Selesai</button>
             </div>
         </div>
         <div class="step-icon"><img src="https://cdn-icons-png.flaticon.com/128/616/616408.png" alt=""></div>
@@ -237,7 +234,7 @@
             <div class="button-row">
                 <button class="btn fungsi">🔎 Fungsi & Tips</button>
                 <button class="btn animasi">▶ Animasi</button>
-                <button class="btn selesai" onclick="markStep('step3')">✔ Selesai</button>
+                <button class="btn selesai" onclick="markDone('step3')">✔ Selesai</button>
             </div>
         </div>
         <div class="step-icon"><img src="https://cdn-icons-png.flaticon.com/128/1065/1065706.png" alt=""></div>
@@ -251,7 +248,7 @@
             <div class="button-row">
                 <button class="btn fungsi">🔎 Fungsi & Tips</button>
                 <button class="btn animasi">▶ Animasi</button>
-                <button class="btn selesai" onclick="markStep('step4')">✔ Selesai</button>
+                <button class="btn selesai" onclick="markDone('step4')">✔ Selesai</button>
             </div>
         </div>
         <div class="step-icon"><img src="https://cdn-icons-png.flaticon.com/128/2659/2659980.png" alt=""></div>
@@ -272,25 +269,39 @@
 </div>
 
 <script>
-let completedSteps = [];
+let completedSteps = JSON.parse(localStorage.getItem("penyemaian_selesai")) || [];
 
-// tombol ✔ Selesai per step
-function markStep(id) {
-    if (!completedSteps.includes(id)) {
-        completedSteps.push(id);
+// Toggle step selesai
+function markDone(stepId) {
+    const stepCard = document.getElementById(stepId);
+    if (stepCard.classList.contains("completed")) {
+        stepCard.classList.remove("completed");
+        completedSteps = completedSteps.filter(s => s !== stepId);
+    } else {
+        stepCard.classList.add("completed");
+        if (!completedSteps.includes(stepId)) completedSteps.push(stepId);
     }
-    alert("Step ditandai selesai. Akan disimpan setelah menekan tombol 'Selesai' di bawah.");
+    localStorage.setItem("penyemaian_selesai", JSON.stringify(completedSteps));
 }
 
-// tombol utama “Selesai”
+// Tombol utama selesai
 function finishAll() {
-    localStorage.setItem("penyemaian_selesai", JSON.stringify(completedSteps));
+    document.querySelectorAll('.step-card').forEach(card => card.classList.add('completed'));
+    localStorage.setItem("penyemaian_selesai", JSON.stringify(['step1','step2','step3','step4']));
     window.location.href = "Gambaran Tahapan.html";
 }
 
-// tombol panah kembali
+// Tombol kembali
 function goBack() {
     window.location.href = "Gambaran Tahapan.html";
+}
+
+// Restore status saat halaman dibuka
+window.onload = function() {
+    completedSteps.forEach(id => {
+        const step = document.getElementById(id);
+        if (step) step.classList.add("completed");
+    });
 }
 </script>
 
