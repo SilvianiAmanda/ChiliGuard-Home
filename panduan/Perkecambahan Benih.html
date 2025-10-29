@@ -119,7 +119,7 @@
         border-color: #d32f2f;
     }
 
-    /* Warna hijau setelah selesai */
+    /* Warna hijau saat selesai */
     .completed {
         border-color: #4CAF50;
         background-color: #eafbea;
@@ -139,7 +139,6 @@
         color: white;
     }
 
-    /* Upload */
     .upload-card {
         border: 2px dashed #f5baba;
         border-radius: 12px;
@@ -286,24 +285,34 @@
 </div>
 
 <script>
-let completedSteps = [];
+let completedSteps = JSON.parse(localStorage.getItem("perkecambahan_selesai")) || [];
 
-// Menandai step selesai sementara
-function markStep(id) {
-    const step = document.getElementById(id);
-    step.classList.add('completed');
-
-    if (!completedSteps.includes(id)) {
-        completedSteps.push(id);
+// Fungsi toggle step
+function markStep(stepId) {
+    const stepCard = document.getElementById(stepId);
+    if (stepCard.classList.contains("completed")) {
+        stepCard.classList.remove("completed");
+        completedSteps = completedSteps.filter(s => s !== stepId);
+    } else {
+        stepCard.classList.add("completed");
+        if (!completedSteps.includes(stepId)) completedSteps.push(stepId);
     }
-
-    alert('Step ditandai selesai. Klik tombol "Selesai" di bawah untuk menyimpan progres.');
+    localStorage.setItem("perkecambahan_selesai", JSON.stringify(completedSteps));
 }
 
-// Tombol selesai — simpan progres dan kembali
+// Tombol selesai semua
 function finishAll() {
-    localStorage.setItem('perkecambahan_selesai', JSON.stringify(completedSteps));
+    document.querySelectorAll('.step-card').forEach(card => card.classList.add('completed'));
+    localStorage.setItem("perkecambahan_selesai", JSON.stringify(['step1','step2','step3','step4','step5']));
     window.location.href = 'Gambaran Tahapan.html';
+}
+
+// Restore status saat halaman dibuka
+window.onload = function() {
+    completedSteps.forEach(id => {
+        const step = document.getElementById(id);
+        if (step) step.classList.add("completed");
+    });
 }
 </script>
 
