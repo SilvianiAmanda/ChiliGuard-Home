@@ -128,7 +128,7 @@
                 <input type="password" placeholder="Kata Sandi" id="password-field" required>
                 
                 <span class="toggle-password" onclick="toggleVisibility()">
-                    <img id="toggle-icon" src="eye.png" alt="Show/Hide Password">
+                    <img id="toggle-icon" src="assets\images\eye.png" alt="Show/Hide Password">
                 </span> 
             </div>
 
@@ -192,12 +192,12 @@
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
                 // Menggunakan path yang Anda tentukan di kode (hide.png)
-                toggleIconImg.src = 'hide.png'; 
+                toggleIconImg.src = 'assets\images\hide.png'; 
                 toggleIconImg.alt = 'Hide Password';
             } else {
                 passwordField.type = 'password';
                 // Menggunakan path yang Anda tentukan di kode (eye.png)
-                toggleIconImg.src = 'eye.png'; 
+                toggleIconImg.src = 'assets\images\eye.png'; 
                 toggleIconImg.alt = 'Show Password';
             }
         }

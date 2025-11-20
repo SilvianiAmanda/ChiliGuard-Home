@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Sensor</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #d32f2f;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .step {
+      background-color: #f9caca;
+      display: inline-block;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #a00000;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #c00000;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: #d32f2f;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .component-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .component {
+      display: flex;
+      align-items: center;
+      background-color: #ffe4e4;
+      border-radius: 12px;
+      padding: 10px;
+      width: 90%;
+      max-width: 380px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .component img {
+      width: 45px;
+      height: 45px;
+      margin-right: 12px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .component-text {
+      text-align: left;
+    }
+
+    .component-text h3 {
+      font-size: 15px;
+      color: #000;
+      margin: 0;
+    }
+
+    .component-text p {
+      font-size: 13px;
+      color: #555;
+      margin: 2px 0 0 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-prev {
+      background-color: #fff;
+      border: 2px solid #d32f2f;
+      color: #d32f2f;
+    }
+
+    .btn-next {
+      background-color: #d32f2f;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>Setup Sensor</header>
+
+  <div class="container">
+    <div class="step">Step 1 dari 4</div>
+    <h1>Persiapan Komponen</h1>
+    <p class="subtitle">Pastikan semua komponen sudah tersedia</p>
+
+    <div class="component-list">
+      <div class="component">
+        <img src="https://1.bp.blogspot.com/-GuWilb37otg/XTe1FBKampI/AAAAAAAADe8/nLT2nCWXoD0mqk4-SD7yUHiod4jCyA2JQCLcBGAs/s1600/ESP32-Module.png alt="ESP32">
+        <div class="component-text">
+          <h3>ESP32</h3>
+          <p>Mikrokontroler utama</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://www.flyrobo.in/image/cache/catalog/dht22-digital-temperature-and-humidity-sensor-module/dht22-digital-temperature-and-humidity-sensor-module4-550x550.jpg" alt="DHT22">
+        <div class="component-text">
+          <h3>Sensor DHT22</h3>
+          <p>Mengukur suhu & kelembaban udara</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.3JROaIsMwuZaEImQxmo7NgHaFu?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Soil Moisture">
+        <div class="component-text">
+          <h3>Sensor Soil Moisture</h3>
+          <p>Mengukur kelembaban tanah</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7FTK0RCMiMrBNrnh19Clw1AtqnYTH9Vbm-hK4e0lEVcwKkBpzK0Al0kFypdSzfpGphlkS1e_N7qKouM9pKzQeG744OCyoEyQUmp5sgK3lfP0SIfjxOHAzspNfH8tGry-qsGrFcW1Wbg0tnXrzKs3SJZkg6XVqy2ulMZ5ZVVPI5uPKKCUOCTC6bkKa/s500/ultrasonic.jpg" alt="Ultrasonik">
+        <div class="component-text">
+          <h3>Sensor Ultrasonik</h3>
+          <p>Mengukur ketinggian air di penampungan</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://filebroker-cdn.lazada.co.id/kf/S8da204642737436c8337e181a60acce7S.jpg" alt="Pompa Air Mini">
+        <div class="component-text">
+          <h3>Pompa Air Mini</h3>
+          <p>Mengalirkan air untuk sistem penyiraman otomatis</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://ae01.alicdn.com/kf/Sbb48ab475dc342c7af727d0fecfd4a63a/DC-6V-12V-24V-Small-Mini-Electric-Solenoid-Valve-Normally-Closed-N-C-Micro-Water-Flow.jpg" alt="Solenoid Valve">
+        <div class="component-text">
+          <h3>Solenoid Valve</h3>
+          <p>Mengontrol aliran air</p>
+        </div>
+      </div>
+
+      <div class="component">
+        <img src="https://core-electronics.com.au/media/catalog/product/d/e/device17_1000.jpg" alt="Relay Module">
+        <div class="component-text">
+          <h3>Relay Module</h3>
+          <p>Mengontrol pompa air dan solenoid valve</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="btn-prev">Sebelumnya</button>
+    <button class="btn-next">Selanjutnya</button>
+  </div>
+
+</body>
+</html>
