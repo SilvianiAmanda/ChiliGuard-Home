@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panduan Penanaman Cabai</title>
+
 <style>
     body {
         font-family: 'Poppins', sans-serif;
@@ -14,103 +15,104 @@
     }
 
     .container {
-        max-width: 400px;
+        max-width: 420px;
         margin: auto;
         padding: 20px;
         text-align: center;
+        position: relative;
     }
 
-    /* Header */
-    .header {
-        margin-top: 10px;
-    }
-
+    /* Back Arrow – geser ke kanan & lebih ke bawah */
     .back-arrow {
         position: absolute;
-        left: 15px;
-        top: 20px;
-        font-size: 24px;
-        color: #d32f2f;
+        left: 30px;          /* geser lebih ke kanan */
+        top: 40px;           /* diturunkan lebih ke bawah */
+        font-size: 28px;
+        font-weight: 700;
+        color: #d84040;
         text-decoration: none;
+        line-height: 1;
     }
 
+    /* Title dengan stroke putih + shadow */
     .title {
-        font-weight: 800;
-        color: #d32f2f;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        font-size: 20px;
-        line-height: 1.2;
-        margin-top: 40px;
+      font-size: 28px; /* lebih besar */
+      font-weight: 800; /* tebal maksimal */
+      color: #CE2F2F;
+      line-height: 1.3;
+      margin-bottom: 40px;
+
+      /* efek stroke putih */
+      -webkit-text-stroke: 0.3px #ffffff;
+      text-stroke: 1px #ffffff;
+
+      /* bayangan teks agar timbul */
+      text-shadow:
+        0px 5px 8px rgba(0, 0, 0, 0.3),
+        -0.5px -0.5px 0 #ffffff,
+        0.5px 0.5px 0 #ffffff;
     }
 
-    /* Card */
+
     .card {
-        border: 1.5px solid #d32f2f;
-        border-radius: 12px;
-        padding: 15px 20px;
+        border: 2px solid #e24b4b;
+        border-radius: 18px;
+        padding: 17px 20px;
         margin-top: 20px;
         text-align: left;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .card h3 {
-        color: #d32f2f;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 8px;
+        color: #d84040;
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 12px;
     }
 
     .card ul {
         list-style-type: disc;
-        margin-left: 20px;
-        font-size: 15px;
-        line-height: 1.6;
+        margin-left: 14px;
+        padding-left: 10px;
+        font-size: 16px;
+        line-height: 1.55;
     }
 
     /* Button */
     .button {
         display: inline-block;
-        background-color: #d32f2f;
+        background-color: #d84040;
         color: white;
         border: none;
         border-radius: 25px;
         padding: 12px 30px;
         font-weight: 600;
-        font-size: 16px;
-        margin-top: 25px;
+        font-size: 15px;
+        margin-top: 30px;
+        width: 75%;
+        text-align: center;
         text-decoration: none;
-        box-shadow: 0 3px 8px rgba(211,47,47,0.3);
-        transition: background 0.3s, transform 0.1s;
-    }
-
-    .button:hover {
-        background-color: #b71c1c;
-        transform: scale(1.05);
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-        .container {
-            padding: 15px;
-        }
-        .title {
-            font-size: 18px;
-        }
-        .card {
-            font-size: 14px;
-        }
+        box-shadow: 0 4px 12px rgba(212, 55, 55, 0.3);
     }
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
-    <a href="#" class="back-arrow">&#8592;</a>
 
-    <div class="header">
-        <h1 class="title">PANDUAN<br>PENANAMAN CABAI</h1>
-    </div>
+    <!-- Panah kecil -->
+    <a href="#" class="back-arrow">&lt;</a>
 
+
+    <!-- Judul -->
+    <h1 class="title">
+        PANDUAN <br>
+        PENANAMAN CABAI
+    </h1>
+
+    <!-- Card 1 -->
     <div class="card">
         <h3>Alat yang Dibutuhkan :</h3>
         <ul>
@@ -123,6 +125,7 @@
         </ul>
     </div>
 
+    <!-- Card 2 -->
     <div class="card">
         <h3>Bahan yang Dibutuhkan :</h3>
         <ul>
@@ -139,7 +142,9 @@
         </ul>
     </div>
 
-    <a href="Gambaran Tahapan.html" class="button">Selanjutnya</a>
+    <!-- Button -->
+    <a href="#" class="button">Selanjutnya</a>
+
 </div>
 
 </body>

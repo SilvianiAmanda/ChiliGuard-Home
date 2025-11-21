@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ChiliGuard Home</title>
+
+    <!-- ICON FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        /* ====== GLOBAL ====== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #ffffff;
+        }
+
+        .container {
+            padding: 20px;
+            padding-bottom: 140px;
+        }
+
+        /* ====== TITLE ====== */
+        .title {
+            font-size: 30px;
+            font-weight: 900;
+            color: #CE2F2F;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            -webkit-text-stroke: 0.3px #ffffff;
+            text-shadow: 0px 5px 8px rgba(0,0,0,0.3),
+                         -0.5px -0.5px 0 #ffffff,
+                         0.5px 0.5px 0 #ffffff;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: -10px;
+            font-weight: bold;
+        }
+
+        /* ====== CARD TANAMAN ====== */
+        .plant-card {
+            background: #fff;
+            border: 1px solid #CE2F2F;
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+        }
+
+        .plant-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .small-text {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .small-text span {
+            font-size: 16px;
+        }
+
+        /* ====== MONITORING BOX ====== */
+        .monitor-box {
+            background: #ffecec;
+            padding: 14px;
+            border-radius: 14px;
+            margin-top: 12px;
+            border: 1px solid #ffb4b4;
+        }
+
+        .monitor-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        /* ====== SOIL BLOCK ====== */
+        .soil-block {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px;
+            border: 1px solid #ffb4b4;
+            margin-bottom: 12px;
+        }
+
+        .soil-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .soil-left {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .soil-right {
+            text-align: right;
+            line-height: 16px;
+        }
+
+        .soil-right .percent {
+            font-weight: bold;
+        }
+
+        .soil-right .status {
+            color: #d63031;
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: -3px;
+        }
+
+        .soil-progress {
+            width: 100%;
+            height: 10px;
+            background: #e6e6e6;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .soil-progress-fill,
+        .soil-progress-fill-2 {
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.6s, background 0.4s;
+        }
+
+        /* ====== INFO BOX ====== */
+        .info-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .info-box {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .info-box h3 {
+            margin: 9px 0 4px 0;
+            font-size: 20px;
+        }
+
+        .info-box span {
+            margin: 0;
+            padding: 0;
+            font-size: 11.48px;
+            color: #000000;
+        }
+
+        /* ====== BUTTON ====== */
+        .btn {
+            width: 94%;
+            margin-top: 14px;
+            padding: 10px;
+            background: #d63031;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn[disabled] {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        .last-watered {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+            padding: 6px;
+            border-radius: 8px;
+            background: #ffecec;
+            border: 1px solid #ffb4b4;
+        }
+
+        /* ====== PROGRESS TAHAPAN ====== */
+        .stage-box {
+            margin-top: 16px;
+        }
+
+        .stage-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stage-progress {
+            width: 100%;
+            height: 8px;
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .stage-fill {
+            width: 30%;
+            height: 100%;
+            background: #d63031;
+            border-radius: 10px;
+        }
+
+        .stage-current {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ffb4b4;
+            border-radius: 10px;
+            background: #fff6f6;
+            font-size: 14px;
+            color: #000000;
+            font-weight: bold;
+            line-height: 20px;
+        }
+
+        /* ====== SPINNER & STATUS ====== */
+        .watering-status {
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 3px solid rgba(0,0,0,0.12);
+            border-top-color: #d63031;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        .hidden { display: none !important; }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ====== BOTTOM NAV ====== */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 2px solid #CE2F2F;
+            border-radius: 15px;
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .active {
+            color: #CE2F2F;
+            font-weight: bold;
+        }
+
+        /* small helper for log text */
+        .log-text {
+            font-size: 12px;
+            color: #333;
+            margin-top: 6px;
+        }
+
+    </style>
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+
+<script>
+/*
+  ChiliGuard Home - Enhanced watering control
+  - Sends watering commands to Firebase node "watering"
+  - Shows loading spinner while watering (until watering.relay_x becomes false)
+  - Displays last watering log (log/last_1, log/last_2)
+  - Ensures watering relay reset when need_watering_x becomes false
+*/
+
+const DATABASE_ROOT = "https://chiliguard-home-default-rtdb.firebaseio.com/"; // root url (no .json)
+const POLL_INTERVAL = 2000; // ms
+
+// state
+let currentWateringWatch = { 1: null, 2: null }; // interval IDs for watching watering status
+
+// helper: read multiple firebase nodes in parallel
+async function fetchAll() {
+    try {
+        const [sensorRes, wateringRes, logRes] = await Promise.all([
+            axios.get(DATABASE_ROOT + "sensor.json"),
+            axios.get(DATABASE_ROOT + "watering.json"),
+            axios.get(DATABASE_ROOT + "log.json")
+        ]);
+        return {
+            sensor: sensorRes.data || {},
+            watering: wateringRes.data || {},
+            log: logRes.data || {}
+        };
+    } catch (err) {
+        console.error("fetchAll error:", err);
+        return { sensor: null, watering: null, log: null };
+    }
+}
+
+// update UI based on fetched data
+function updateUI(sensor, watering, log) {
+    if (!sensor) return;
+
+    // Tanaman 1
+    const soilBar1 = document.querySelector(".soil-progress-fill");
+    if (sensor.soil_1 !== undefined) {
+        document.querySelector("#soilPercent").innerText = sensor.soil_1 + "%";
+        soilBar1.style.width = sensor.soil_1 + "%";
+        soilBar1.style.background = sensor.soil_1 > 50 ? "#2ecc71" : "#d63031";
+        document.querySelector(".soil-status").innerText = sensor.soil_1 > 50 ? "Optimal" : "Kering";
+        document.querySelector(".soil-status").style.color = sensor.soil_1 > 50 ? "#008800" : "#d63031";
+    }
+
+    if (sensor.temperature !== undefined) {
+        document.querySelector("#temperature").innerText = sensor.temperature + "°C";
+        document.querySelector("#temperatureStatus").innerText =
+            (sensor.temperature >= 20 && sensor.temperature <= 30) ? "Optimal" : "Perlu Perhatian";
+    }
+
+    if (sensor.humidity !== undefined) {
+        document.querySelector("#humidity").innerText = sensor.humidity + "%";
+        document.querySelector("#humidityStatus").innerText =
+            (sensor.humidity >= 40 && sensor.humidity <= 70) ? "Optimal" : "Perlu Perhatian";
+    }
+
+    // Tombol & status Tanaman 1
+    const btn1 = document.querySelector("#btnWater1");
+    const spinner1 = document.querySelector("#spinner1");
+    const statusText1 = document.querySelector("#statusText1");
+
+    // show/hide button based on need_watering
+    btn1.style.display = sensor.need_watering_1 ? "block" : "none";
+
+    // If sensor says need_watering is false -> ensure relay reset (safety)
+    if (sensor.need_watering_1 === false && watering && watering.relay_1) {
+        // attempt to reset relay_1 false
+        setTimeout(() => {
+            setRelayFields({ relay_1: false, relay_2: watering.relay_2 ? true : false })
+                .catch(e => console.warn("Failed auto-reset relay_1:", e));
+        }, 50);
+    }
+
+    // if watering.relay_1 is true -> show spinner and disable button
+    if (watering && watering.relay_1) {
+        spinner1.classList.remove("hidden");
+        statusText1.innerText = "Menyiram...";
+        btn1.disabled = true;
+    } else {
+        spinner1.classList.add("hidden");
+        statusText1.innerText = "";
+        btn1.disabled = false;
+    }
+
+    // Tanaman 2
+    const soilBar2 = document.querySelector(".soil-progress-fill-2");
+    if (sensor.soil_2 !== undefined) {
+        document.querySelector("#soilPercent2").innerText = sensor.soil_2 + "%";
+        soilBar2.style.width = sensor.soil_2 + "%";
+        soilBar2.style.background = sensor.soil_2 > 50 ? "#2ecc71" : "#d63031";
+        document.querySelector(".soil-status-2").innerText = sensor.soil_2 > 50 ? "Optimal" : "Kering";
+        document.querySelector(".soil-status-2").style.color = sensor.soil_2 > 50 ? "#008800" : "#d63031";
+    }
+
+    if (sensor.temperature !== undefined) {
+        document.querySelector("#temperature2").innerText = sensor.temperature + "°C";
+        document.querySelector("#temperatureStatus2").innerText =
+            (sensor.temperature >= 20 && sensor.temperature <= 30) ? "Optimal" : "Perlu Perhatian";
+    }
+
+    if (sensor.humidity !== undefined) {
+        document.querySelector("#humidity2").innerText = sensor.humidity + "%";
+        document.querySelector("#humidityStatus2").innerText =
+            (sensor.humidity >= 40 && sensor.humidity <= 70) ? "Optimal" : "Perlu Perhatian";
+    }
+
+    // Tombol & status Tanaman 2
+    const btn2 = document.querySelector("#btnWater2");
+    const spinner2 = document.querySelector("#spinner2");
+    const statusText2 = document.querySelector("#statusText2");
+
+    btn2.style.display = sensor.need_watering_2 ? "block" : "none";
+
+    if (sensor.need_watering_2 === false && watering && watering.relay_2) {
+        // attempt to reset relay_2 false
+        setTimeout(() => {
+            setRelayFields({ relay_1: watering.relay_1 ? true : false, relay_2: false })
+                .catch(e => console.warn("Failed auto-reset relay_2:", e));
+        }, 50);
+    }
+
+    if (watering && watering.relay_2) {
+        spinner2.classList.remove("hidden");
+        statusText2.innerText = "Menyiram...";
+        btn2.disabled = true;
+    } else {
+        spinner2.classList.add("hidden");
+        statusText2.innerText = "";
+        btn2.disabled = false;
+    }
+
+    // Update log times (if exist)
+    if (log) {
+        if (log.last_1) document.querySelector("#lastLog1").innerText = log.last_1;
+        if (log.last_2) document.querySelector("#lastLog2").innerText = log.last_2;
+    }
+}
+
+// helper: set watering node (PUT full object)
+async function setRelayFields(obj) {
+    // obj should be like { relay_1: true/false, relay_2: true/false }
+    try {
+        await axios.put(DATABASE_ROOT + "watering.json", obj);
+    } catch (err) {
+        console.error("setRelayFields error:", err);
+        throw err;
+    }
+}
+
+// send watering command and watch until firebase relay becomes false
+async function sendWateringCommand(relayNumber) {
+    const btn = relayNumber === 1 ? document.querySelector("#btnWater1") : document.querySelector("#btnWater2");
+    const spinner = relayNumber === 1 ? document.querySelector("#spinner1") : document.querySelector("#spinner2");
+    const statusText = relayNumber === 1 ? document.querySelector("#statusText1") : document.querySelector("#statusText2");
+
+    try {
+        // Compose payload: set selected relay true, the other relay keeps its last known state = false (safe)
+        const initialRes = await axios.get(DATABASE_ROOT + "watering.json");
+        const current = initialRes.data || {};
+        const payload = {
+            relay_1: relayNumber === 1 ? true : (current.relay_1 ? true : false),
+            relay_2: relayNumber === 2 ? true : (current.relay_2 ? true : false)
+        };
+
+        // send command
+        await axios.put(DATABASE_ROOT + "watering.json", payload);
+
+        // UI: show spinner, disable both buttons (to avoid concurrent commands)
+        spinner.classList.remove("hidden");
+        statusText.innerText = "Menyiram...";
+        document.querySelector("#btnWater1").disabled = true;
+        document.querySelector("#btnWater2").disabled = true;
+
+        // start watching watering node for the selected relay to go back to false
+        if (currentWateringWatch[relayNumber]) {
+            clearInterval(currentWateringWatch[relayNumber]);
+            currentWateringWatch[relayNumber] = null;
+        }
+
+        currentWateringWatch[relayNumber] = setInterval(async () => {
+            try {
+                const res = await axios.get(DATABASE_ROOT + "watering.json");
+                const w = res.data || {};
+                // if relay turned false -> stop spinner and re-enable buttons
+                if ((relayNumber === 1 && !w.relay_1) || (relayNumber === 2 && !w.relay_2)) {
+                    clearInterval(currentWateringWatch[relayNumber]);
+                    currentWateringWatch[relayNumber] = null;
+
+                    spinner.classList.add("hidden");
+                    statusText.innerText = "";
+
+                    // re-enable buttons based on need_watering flags (they will be updated in next fetchAll)
+                    // also fetch logs once to show new log
+                    try {
+                        const [sensorRes, logRes] = await Promise.all([
+                            axios.get(DATABASE_ROOT + "sensor.json"),
+                            axios.get(DATABASE_ROOT + "log.json")
+                        ]);
+                        const sensor = sensorRes.data || {};
+                        const log = logRes.data || {};
+                        if (log && log[`last_${relayNumber}`]) {
+                            document.querySelector(`#lastLog${relayNumber}`).innerText = log[`last_${relayNumber}`];
+                        }
+                        // ensure buttons reflect need_watering after completion
+                        updateUI(sensor, w, log);
+                    } catch (err) {
+                        console.warn("post-watering fetch error:", err);
+                    }
+                }
+            } catch (err) {
+                console.error("watch watering error:", err);
+            }
+        }, 1500);
+
+        alert("Perintah penyiraman dikirim! Sistem akan menyiram sampai sensor menyatakan selesai.");
+    } catch (err) {
+        console.error("sendWateringCommand error:", err);
+        alert("Gagal mengirim perintah penyiraman. Cek koneksi.");
+        // restore UI
+        document.querySelector("#spinner1").classList.add("hidden");
+        document.querySelector("#spinner2").classList.add("hidden");
+        document.querySelector("#statusText1").innerText = "";
+        document.querySelector("#statusText2").innerText = "";
+        document.querySelector("#btnWater1").disabled = false;
+        document.querySelector("#btnWater2").disabled = false;
+    }
+}
+
+// Periodic poll
+async function pollLoop() {
+    const { sensor, watering, log } = await fetchAll();
+    updateUI(sensor, watering, log);
+}
+
+// initial binding
+document.addEventListener("DOMContentLoaded", () => {
+    // bind buttons
+    document.querySelector("#btnWater1").addEventListener("click", () => sendWateringCommand(1));
+    document.querySelector("#btnWater2").addEventListener("click", () => sendWateringCommand(2));
+
+    // start polling
+    pollLoop();
+    setInterval(pollLoop, POLL_INTERVAL);
+});
+</script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Selamat Datang di ChiliGuard Home!</h1>
+        <h2>Tanaman saya</h2>
+
+        <!-- CARD 1 -->
+        <div class="plant-card">
+            <div class="plant-header">Cabai Merah 1</div>
+            <div class="small-text">🌱 <span>21 hari</span></div>
+            <div class="monitor-box">
+                <div class="monitor-title">Monitoring Real-Time</div>
+                <div class="soil-block">
+                    <div class="soil-header">
+                        <div class="soil-left">💧 <span>Kelembapan Tanah</span></div>
+                        <div class="soil-right">
+                            <div class="percent" id="soilPercent">25%</div>
+                            <div class="status soil-status">Kering</div>
+                        </div>
+                    </div>
+                    <div class="soil-progress">
+                        <div class="soil-progress-fill" style="width:25%"></div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-box">
+                        🌡️<span>Suhu</span>
+                        <h3 id="temperature">28°C</h3>
+                        <span id="temperatureStatus">Optimal</span>
+                    </div>
+                    <div class="info-box">
+                        💧 <span>Kelembapan Udara</span>
+                        <h3 id="humidity">65%</h3>
+                        <span id="humidityStatus">Optimal</span>
+                    </div>
+                </div>
+
+                <!-- tombol siram + spinner -->
+                <div style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="btn" id="btnWater1" style="display:none">Siram Sekarang</div>
+                    <div class="watering-status">
+                        <div id="spinner1" class="spinner hidden"></div>
+                        <div id="statusText1"></div>
+                    </div>
+                    <div class="log-text">Terakhir disiram: <span id="lastLog1">-</span></div>
+                </div>
+            </div>
+            <div class="stage-box">
+                <div class="stage-header">
+                    <span>Progress Tahapan</span>
+                    <span>30%</span>
+                </div>
+                <div class="stage-progress">
+                    <div class="stage-fill"></div>
+                </div>
+                <div class="stage-current">
+                    Tahap Saat Ini : <br> Masa Pertumbuhan
+                </div>
+            </div>
+            <div class="btn">Lihat Detail Tahapan</div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="plant-card">
+            <div class="plant-header">Cabai Merah 2</div>
+            <div class="small-text">🌱 <span>21 hari</span></div>
+            <div class="monitor-box">
+                <div class="monitor-title">Monitoring Real-Time</div>
+                <div class="soil-block">
+                    <div class="soil-header">
+                        <div class="soil-left">💧 <span>Kelembapan Tanah</span></div>
+                        <div class="soil-right">
+                            <div class="percent" id="soilPercent2">55%</div>
+                            <div class="status soil-status-2">Optimal</div>
+                        </div>
+                    </div>
+                    <div class="soil-progress">
+                        <div class="soil-progress-fill-2" style="width:55%"></div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-box">
+                        🌡️ <span>Suhu</span>
+                        <h3 id="temperature2">28°C</h3>
+                        <span id="temperatureStatus2">Optimal</span>
+                    </div>
+                    <div class="info-box">
+                        💧 <span>Kelembapan Udara</span>
+                        <h3 id="humidity2">65%</h3>
+                        <span id="humidityStatus2">Optimal</span>
+                    </div>
+                </div>
+
+                <!-- tombol siram + spinner -->
+                <div style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="btn" id="btnWater2" style="display:none">Siram Sekarang</div>
+                    <div class="watering-status">
+                        <div id="spinner2" class="spinner hidden"></div>
+                        <div id="statusText2"></div>
+                    </div>
+                    <div class="log-text">Terakhir disiram: <span id="lastLog2">-</span></div>
+                </div>
+            </div>
+            <div class="stage-box">
+                <div class="stage-header">
+                    <span>Progress Tahapan</span>
+                    <span>30%</span>
+                </div>
+                <div class="stage-progress">
+                    <div class="stage-fill"></div>
+                </div>
+                <div class="stage-current">
+                    Tahap Saat Ini : <br> Masa Pertumbuhan
+                </div>
+            </div>
+            <div class="btn">Lihat Detail Tahapan</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="bottom-nav">
+        <div class="nav-item active"><i class="fa-solid fa-house"></i><br>Beranda</div>
+        <div class="nav-item" id="navEdukasi"><i class="fa-solid fa-graduation-cap"></i><br>Edukasi</div>
+        <div class="nav-item" id="navNotifikasi"><i class="fa-solid fa-bell"></i><br>Notifikasi</div>
+        <div class="nav-item" id="navSystem"><i class="fa-solid fa-gear"></i><br>Sistem</div>
+    </div>
+
+    <script>
+    document.getElementById("navEdukasi").addEventListener("click", function() {
+        window.location.href = "edukasi.html";
+    });
+    document.getElementById("navNotifikasi").addEventListener("click", function() {
+        window.location.href = "notifikasi.html";
+    });
+    document.getElementById("navSystem").addEventListener("click", function() {
+        window.location.href = "smart-system.html";
+    });
+</script>
+</body>
+</html>
