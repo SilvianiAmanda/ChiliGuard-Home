@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Cabai</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #ffffff;
+        color: #333;
+    }
+
+    /* TOMBOL KEMBALI */
+    .back-btn {
+        padding: 20px;
+        font-size: 26px;
+        cursor: pointer;
+        color: #d32f2f;
+        font-weight: bold;
+    }
+
+    /* HEADER */
+    .header-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 900;
+        color: #d32f2f;
+        margin-top: -10px;
+    }
+
+    /* SUBHEADER */
+    .subheader {
+        font-size: 22px;
+        font-weight: 800;
+        padding: 10px 20px;
+        color: #d32f2f;
+    }
+
+    /* STEP CARD */
+    .step-card {
+        border: 2px solid #d32f2f;
+        border-radius: 18px;
+        padding: 18px;
+        margin: 18px;
+        position: relative;
+        background: #fff;
+    }
+
+    /* LABEL STEP */
+    .step-label {
+        background: #d32f2f;
+        color: white;
+        font-size: 13px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    /* GAMBAR */
+    .step-image {
+        width: 90px;
+        height: 90px;
+        border-radius: 12px;
+        object-fit: cover;
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        border: 2px solid #ddd;
+        background: white;
+    }
+
+    /* JUDUL */
+    .step-title {
+        font-size: 18px;
+        font-weight: 900;
+        color: #d32f2f;
+        padding-right: 120px;
+    }
+
+    /* DESKRIPSI */
+    .step-desc {
+        padding-right: 120px;
+        margin-bottom: 12px;
+        line-height: 1.45;
+    }
+
+    /* BUTTON FILTER */
+    .filter-buttons button {
+        border: 1.5px solid #d32f2f;
+        padding: 6px 14px;
+        margin-right: 8px;
+        margin-top: 8px;
+        background: #fff;
+        color: #d32f2f;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    /* UPLOAD BOX */
+    .upload-box {
+        text-align: center;
+        border: 2px dashed #d32f2f;
+        background: #ffeaea;
+        margin: 20px;
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .upload-btn {
+        padding: 12px 20px;
+        background: #d32f2f;
+        color: #fff;
+        border-radius: 10px;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    /* TOMBOL SELESAI */
+    .finish-btn {
+        background: #d32f2f;
+        color: white;
+        padding: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 25px;
+        border-radius: 18px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON -->
+<div class="back-btn" onclick="goBack()">←</div>
+
+<!-- JUDUL -->
+<div class="header-title">PANDUAN PENANAMAN CABAI</div>
+
+<!-- SUBHEADER -->
+<div class="subheader">Pindah Ke Pot Besar</div>
+
+<!-- STEP 1 -->
+<div class="step-card">
+    <div class="step-label">Step 1</div>
+    <img class="step-image" src="img/step1.png">
+    <div class="step-title">Siapkan Media Tanam</div>
+    <div class="step-desc">
+        Campurkan tanah halus, pupuk kandang/kompos, dan arang sekam dengan perbandingan 1:1:1.
+    </div>
+
+    <div class="filter-buttons">
+        <button>Fungsi & Tips</button>
+        <button>Animasi</button>
+        <button>Selesai</button>
+    </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-card">
+    <div class="step-label">Step 2</div>
+    <img class="step-image" src="img/step2.png">
+    <div class="step-title">Isi Pot</div>
+    <div class="step-desc">
+        Isi pot hingga 3/4 bagian terisi dan pastikan media sudah padat, rata, dan siap untuk ditanami bibit.
+    </div>
+
+    <div class="filter-buttons">
+        <button>Fungsi & Tips</button>
+        <button>Animasi</button>
+        <button>Selesai</button>
+    </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-card">
+    <div class="step-label">Step 3</div>
+    <img class="step-image" src="img/step3.png">
+    <div class="step-title">Pindah Tanam Bibit</div>
+    <div class="step-desc">
+        Pindah tanam bibit umur 21-28 hss (4-5 helai daun) pada sore hari. Buat lubang seukuran media semai bibit, tanam bibit utuh dengan media lamanya, lalu tutup.
+    </div>
+
+    <div class="filter-buttons">
+        <button>Fungsi & Tips</button>
+        <button>Animasi</button>
+        <button>Selesai</button>
+    </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-card">
+    <div class="step-label">Step 4</div>
+    <img class="step-image" src="img/step4.png">
+    <div class="step-title">Aplikasi Agens Hayati & Siram</div>
+    <div class="step-desc">
+        Tambahkan Jamur Mikoriza Arbuskular (JMA) sebanyak 5 g/lubang tanam di sekitar perakaran. Siram air hingga basah merata.
+    </div>
+
+    <div class="filter-buttons">
+        <button>Fungsi & Tips</button>
+        <button>Animasi</button>
+        <button>Selesai</button>
+    </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step-card">
+    <div class="step-label">Step 5</div>
+    <img class="step-image" src="img/step5.png">
+    <div class="step-title">Aplikasi Pupuk NPK</div>
+    <div class="step-desc">
+        Lakukan pemupukan kocor NPK 16-16-16 (2-3 gram/liter air) pada usia 7 hari setelah tanam sebagai pupuk susulan pertama. Siramkan larutan NPK di sekitar pangkal tanaman.
+    </div>
+
+    <div class="filter-buttons">
+        <button>Fungsi & Tips</button>
+        <button>Animasi</button>
+        <button>Selesai</button>
+    </div>
+</div>
+
+<!-- UPLOAD -->
+<div class="upload-box">
+    <h3>Upload Hasil Akhir</h3>
+    <p>Setelah menyelesaikan semua langkah, upload foto tanaman Anda.</p>
+    <button class="upload-btn">Upload Foto Hasil Kerja</button>
+</div>
+
+<!-- FINISH BUTTON -->
+<div class="finish-btn" onclick="goToMonitoring()">Selesai</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function goToMonitoring() {
+        window.location.href = "../monitoring.html";
+    }
+</script>
+
+</body>
+</html>

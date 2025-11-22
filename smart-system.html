@@ -162,7 +162,7 @@ function loadESPStatus() {
             const now = Date.now();
 
             // ESP dianggap offline jika >5 detik tidak update
-            const isOnline = (now - lastSeenMS) <= 10000;
+            const isOnline = (now - lastSeenMS) <= 15000;
             updateESPUI(isOnline);
         })
         .catch(err => updateESPUI(false));

@@ -339,24 +339,44 @@ function updateUI(sensor, watering, log) {
 
     // Tanaman 1
     const soilBar1 = document.querySelector(".soil-progress-fill");
+
     if (sensor.soil_1 !== undefined) {
-        document.querySelector("#soilPercent").innerText = sensor.soil_1 + "%";
-        soilBar1.style.width = sensor.soil_1 + "%";
-        soilBar1.style.background = sensor.soil_1 > 50 ? "#2ecc71" : "#d63031";
-        document.querySelector(".soil-status").innerText = sensor.soil_1 > 50 ? "Optimal" : "Kering";
-        document.querySelector(".soil-status").style.color = sensor.soil_1 > 50 ? "#008800" : "#d63031";
+        const soil1 = sensor.soil_1;
+
+        document.querySelector("#soilPercent").innerText = soil1 + "%";
+        soilBar1.style.width = soil1 + "%";
+
+        if (soil1 < 70) {
+            // Kering
+            soilBar1.style.background = "#d63031"; // merah
+            document.querySelector(".soil-status").innerText = "Kering";
+            document.querySelector(".soil-status").style.color = "#d63031";
+        }
+        else if (soil1 > 80) {
+            // Terlalu Basah
+            soilBar1.style.background = "#f39c12"; // oranye
+            document.querySelector(".soil-status").innerText = "Terlalu Basah";
+            document.querySelector(".soil-status").style.color = "#f39c12";
+        }
+        else {
+            // Optimal
+            soilBar1.style.background = "#2ecc71"; // hijau
+            document.querySelector(".soil-status").innerText = "Optimal";
+            document.querySelector(".soil-status").style.color = "#008800";
+        }
     }
+
 
     if (sensor.temperature !== undefined) {
         document.querySelector("#temperature").innerText = sensor.temperature + "°C";
         document.querySelector("#temperatureStatus").innerText =
-            (sensor.temperature >= 20 && sensor.temperature <= 30) ? "Optimal" : "Perlu Perhatian";
+            (sensor.temperature >= 20 && sensor.temperature <= 32) ? "Optimal" : "Perlu Perhatian";
     }
 
     if (sensor.humidity !== undefined) {
         document.querySelector("#humidity").innerText = sensor.humidity + "%";
         document.querySelector("#humidityStatus").innerText =
-            (sensor.humidity >= 40 && sensor.humidity <= 70) ? "Optimal" : "Perlu Perhatian";
+            (sensor.humidity >= 60 && sensor.humidity <= 80) ? "Optimal" : "Perlu Perhatian";
     }
 
     // Tombol & status Tanaman 1
@@ -389,24 +409,44 @@ function updateUI(sensor, watering, log) {
 
     // Tanaman 2
     const soilBar2 = document.querySelector(".soil-progress-fill-2");
+
     if (sensor.soil_2 !== undefined) {
-        document.querySelector("#soilPercent2").innerText = sensor.soil_2 + "%";
-        soilBar2.style.width = sensor.soil_2 + "%";
-        soilBar2.style.background = sensor.soil_2 > 50 ? "#2ecc71" : "#d63031";
-        document.querySelector(".soil-status-2").innerText = sensor.soil_2 > 50 ? "Optimal" : "Kering";
-        document.querySelector(".soil-status-2").style.color = sensor.soil_2 > 50 ? "#008800" : "#d63031";
+        const soil2 = sensor.soil_2;
+
+        document.querySelector("#soilPercent2").innerText = soil2 + "%";
+        soilBar2.style.width = soil2 + "%";
+
+        if (soil2 < 70) {
+            // Kering
+            soilBar2.style.background = "#d63031"; // merah
+            document.querySelector(".soil-status-2").innerText = "Kering";
+            document.querySelector(".soil-status-2").style.color = "#d63031";
+        }
+        else if (soil2 > 80) {
+            // Terlalu Basah
+            soilBar2.style.background = "#f39c12"; // oranye
+            document.querySelector(".soil-status-2").innerText = "Terlalu Basah";
+            document.querySelector(".soil-status-2").style.color = "#f39c12";
+        }
+        else {
+            // Optimal
+            soilBar2.style.background = "#2ecc71"; // hijau
+            document.querySelector(".soil-status-2").innerText = "Optimal";
+            document.querySelector(".soil-status-2").style.color = "#008800";
+        }
     }
+
 
     if (sensor.temperature !== undefined) {
         document.querySelector("#temperature2").innerText = sensor.temperature + "°C";
         document.querySelector("#temperatureStatus2").innerText =
-            (sensor.temperature >= 20 && sensor.temperature <= 30) ? "Optimal" : "Perlu Perhatian";
+            (sensor.temperature >= 20 && sensor.temperature <= 32) ? "Optimal" : "Perlu Perhatian";
     }
 
     if (sensor.humidity !== undefined) {
         document.querySelector("#humidity2").innerText = sensor.humidity + "%";
         document.querySelector("#humidityStatus2").innerText =
-            (sensor.humidity >= 40 && sensor.humidity <= 70) ? "Optimal" : "Perlu Perhatian";
+            (sensor.humidity >= 60 && sensor.humidity <= 80) ? "Optimal" : "Perlu Perhatian";
     }
 
     // Tombol & status Tanaman 2
@@ -558,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- CARD 1 -->
         <div class="plant-card">
-            <div class="plant-header">Cabai Merah 1</div>
+            <div class="plant-header">Cabai Kriting 1</div>
             <div class="small-text">🌱 <span>21 hari</span></div>
             <div class="monitor-box">
                 <div class="monitor-title">Monitoring Real-Time</div>
@@ -614,7 +654,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- CARD 2 -->
         <div class="plant-card">
-            <div class="plant-header">Cabai Merah 2</div>
+            <div class="plant-header">Cabai Keriting 2</div>
             <div class="small-text">🌱 <span>21 hari</span></div>
             <div class="monitor-box">
                 <div class="monitor-title">Monitoring Real-Time</div>
